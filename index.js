@@ -1,4 +1,4 @@
-//outputs a randomly generated color and shows the HEX value for that color
+// outputs a randomly generated color and shows the HEX value for that color
 // can show hue (e.g. green or red or blue) and luminosity (e.g. light or dark) if input in the format "node index.js blue" or "node index index.js blue dark"
 
 import chalk from 'chalk';
@@ -13,9 +13,10 @@ const backgroundHashtags3 = '       #####';
 const backgroundEmpty = '       ';
 let outputColor = null;
 let amendedColor = null;
-let tempColor = null;
 
 const inputColor = colornames(process.argv[2]);
+console.log(process.argv[2]);
+console.log(inputColor);
 
 const notARandomColor = Boolean(process.argv[2]);
 
@@ -31,7 +32,9 @@ if (process.argv[3] === 'dark') {
   amendedColor = shader(inputColor, 0.5);
 } else if (process.argv[3] !== 'dark') {
   amendedColor = inputColor;
-} else amendedColor = randomHexNumber;
+} else {
+  amendedColor = randomHexNumber;
+}
 
 if (notARandomColor) {
   console.log(chalk.hex(amendedColor)(backgroundHashtags));
